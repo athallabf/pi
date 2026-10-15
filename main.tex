@@ -91,7 +91,61 @@ The remainder of this paper is organized as follows. Section~\ref{sec:method} de
 %% PLACEHOLDER SECTIONS (replace with the next chapters)
 %% ====================================================================
 \section{Methodology}\label{sec:method}
-\todo{To be written.}
+
+\subsection{Review Design and Scope}
+This systematic literature review (SLR) follows the evidence-based software engineering approach of Kitchenham and Charters \cite{kitchenham2007}. Its reporting is informed by SEGRESS \cite{segress2023}, PRISMA 2020 \cite{page2021}, and PRISMA-S \cite{prismaS2021}. These standards guide reporting transparency but cannot substitute for an accurate account of the steps actually conducted.
+
+The four research questions (Section~\ref{sec:intro}) were operationalized with PICOC. The population comprises human programmers or developers, including advanced students undertaking realistic software engineering tasks. The intervention is interactive GenAI or LLM-based coding assistance for understanding, debugging, maintaining, modifying, or reviewing software. Comparators can include non-AI development or alternative AI conditions but are not mandatory. The outcome concerns developers' own code comprehension, measured directly or through defensible close proxies. Productivity, code quality, task duration, and model performance alone do not establish developer comprehension.
+
+\subsection{Search Strategy and Sources}
+Database searches were conducted on 17 September 2026 using Scopus, IEEE Xplore, and ScienceDirect. The protocol specified a 2021--2026 publication window, but the actual retrieval could only include records available by September 2026. Search expressions combined GenAI coding-assistance, comprehension-related, and software/code-related concept blocks with Boolean AND; synonyms within each block used OR. Scopus used \texttt{TITLE-ABS-KEY}, IEEE Xplore used \texttt{All Metadata}, and ScienceDirect used title, abstract, or author-specified keywords. The ScienceDirect query was split into five narrower searches due to platform constraints. Executed queries, field choices, limits, and counts are reproduced in the supplementary search-strategy document.
+
+The searches targeted English-language articles and conference papers; ScienceDirect was filtered to research articles. Scopus exported 3,265 records, reduced to 2,979 by publication type and 2,948 by language. An additional 43 records dated 2027 were excluded under the predefined review window, leaving 2,905. IEEE Xplore yielded 1,591 records after conference/journal and 2021--2026 filters. ScienceDirect produced 68, 10, 1, 10, and 3 hits across five queries; the total of 92 retains between-query overlaps pending global deduplication (Table~\ref{tab:retrieval}).
+
+\begin{table}[t]
+\caption{Database records entering the global merge.}
+\label{tab:retrieval}
+\centering
+\begin{tabular}{lr}
+\hline
+\textbf{Database} & \textbf{Records} \\
+\hline
+Scopus & 2,905 \\
+IEEE Xplore & 1,591 \\
+ScienceDirect (five queries) & 92 \\
+\hline
+Total & 4,588 \\
+\hline
+\end{tabular}
+\end{table}
+
+ACM Digital Library was planned but could not be searched because access was unavailable. This deviation was logged. An initial Scopus query was also refined when broad comprehension wildcards retrieved many unrelated records, improving precision at a potential cost to recall. These limitations are revisited in Section~\ref{sec:threats}.
+
+\subsection{Eligibility Criteria and Study Selection}
+Seven inclusion (IC1--IC7) and eight exclusion criteria (EC1--EC8) defined eligibility. Included reports required human use of a GenAI coding assistant during a realistic software engineering or maintenance task; a direct comprehension outcome or justified close proxy; empirical primary research; a peer-reviewed journal or conference version; and usable English full text. Model-only evaluations, productivity-only findings, introductory programming without realistic engineering tasks, secondary reviews, unreviewed preprints, and duplicate reports without new relevant evidence were excluded. An author preprint could provide full-text access for an independently established peer-reviewed report but was not eligible as an unpublished study on its own.
+
+Source metadata were normalized to a common schema while preserving the raw database audit trail. Duplicates were flagged first by DOI, then by normalized title, authors, and year; ambiguous publication versions were flagged for separate examination. Of the 4,588 identified records, 845 were flagged as duplicates, leaving 3,743 unique records.
+
+An AI-assisted title/abstract screening workflow recorded decisions, exclusion bases, confidence values, and rationales according to the predefined criteria. The screening log recorded 3,713 exclusions and 30 reports retained for full-text consideration. The full-text log records 24 included reports and six exclusions, with one primary reason per exclusion. The protocol planned independent assessment by two reviewers per record, a 50-record pilot among four reviewers, and an inter-rater agreement calculation; however, the available pilot worksheets contain no completed independent decisions and no agreement statistic was recorded. Accordingly, those planned checks are not represented as completed in this report.
+
+\subsection{Quality Appraisal}
+The eight-item study-quality checklist examined clarity of objectives (QA1), reporting and appropriateness of empirical methods (QA2), participant/experience characteristics (QA3), GenAI tool and usage scenario (QA4), task description and realism (QA5), comprehension measurement (QA6), evidence and analysis (QA7), and limitations or validity threats (QA8). Scores were Yes (1), Partially (0.5), No (0), or Not Applicable, with non-applicable items removed from the denominator. The study-level percentage is
+\begin{equation}
+Q=100\frac{\sum_{i=1}^{8}s_i}{N_{\mathrm{applicable}}}.
+\label{eq:qa_score}
+\end{equation}
+A review-specific 60\% cutoff was finalized on 18 September 2026. This cutoff is not universally prescribed by SLR guidelines, and the checklist does not constitute a validated formal risk-of-bias instrument.
+
+Twenty-four full-text-eligible reports have AI-assisted preliminary quality scores, each presently above the cutoff. Independent confirmation by two human reviewers has not yet been recorded, so these preliminary ratings are not described as human-confirmed final judgments.
+
+\subsection{Data Extraction}
+A structured data-extraction matrix records study identifiers and citations, research designs, participants and experience, assistant/model versions, interaction and support modes, development tasks, codebase characteristics, comprehension measures, comparators, effect direction and statistics, challenges, and limitations. Source sections or pages are stored to make findings traceable. Direct comprehension tests are distinguished from proxies including cognitive load and perceived understanding. The working matrix contains 24 AI-assisted extraction entries, subject to source-level human verification before use as final synthesis evidence.
+
+\subsection{Synthesis and Completeness Checks}
+The planned synthesis follows the four RQs: RQ1 examines comprehension effects by outcome and context; RQ2 classifies assistants and forms of support; RQ3 maps participant, design, task, codebase, and measurement characteristics; and RQ4 organizes reported barriers, mechanisms, and consequences. Cross-study comparisons will distinguish direct comprehension tests from proxies and will consider contrary and non-significant findings rather than equating faster completion with deeper understanding. Heterogeneous study designs and outcome measures motivate a structured narrative/thematic approach rather than an assumed meta-analysis.
+
+The protocol further specifies one round of backward reference snowballing, forward citation tracking through Scopus, an author-based search of three prominent authors, and a completeness check among references of four highly cited included papers. These steps and final synthesis are not yet recorded as completed. The final corpus and PRISMA flow will be reconciled when those activities and human verification are finished.
+
 
 \section{Results}\label{sec:results}
 \todo{To be written.}
@@ -120,6 +174,8 @@ The remainder of this paper is organized as follows. Section~\ref{sec:method} de
 \bibitem{qiao2026} Y. Qiao, M. I. H. Shihab, and C. Hundhausen, ``A systematic literature review of the use of GenAI assistants for code comprehension: Implications for computing education research and practice,'' \textit{ACM Trans. Comput. Educ.}, vol. 26, no. 2, 2026, doi: 10.1145/3785366.
 \bibitem{kitchenham2007} B. Kitchenham and S. Charters, ``Guidelines for performing systematic literature reviews in software engineering,'' EBSE Tech. Rep. EBSE-2007-01, 2007.
 \bibitem{page2021} M. J. Page et al., ``The PRISMA 2020 statement: An updated guideline for reporting systematic reviews,'' \textit{BMJ}, vol. 372, art. n71, 2021, doi: 10.1136/bmj.n71.
+\bibitem{segress2023} B. Kitchenham, L. Madeyski, and D. Budgen, "SEGRESS: Software engineering guidelines for reporting secondary studies," \textit{IEEE Trans. Softw. Eng.}, vol. 49, no. 3, pp. 1273--1298, 2023, doi: 10.1109/TSE.2022.3174092.
+\bibitem{prismaS2021} M. L. Rethlefsen et al., "PRISMA-S: An extension to the PRISMA statement for reporting literature searches in systematic reviews," \textit{Syst. Rev.}, vol. 10, art. 39, 2021, doi: 10.1186/s13643-020-01542-z.
 \end{thebibliography}
 
 \end{document}
